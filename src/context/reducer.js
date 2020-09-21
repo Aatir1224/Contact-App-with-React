@@ -8,4 +8,32 @@ import {
   } from "./action.types";
   
   //TODO: use switch case
+export default (state, action) => {
+  switch(action.type){
+    case SET_CONTACT:
+      return action.payload == null ? {
+        ...state, contacts : []
+      } : {
+        ...state, contacts: action.payload
+      }
+
+    case SET_LOADING:
+      return {...state, isLoading:action.payload}
   
+    case CONTACT_TO_UPDATE:
+      return {
+        ...state,
+        contactToUpdate:action.type,
+        contactToUpdateKey:action.key
+      }
+
+    case SET_SINGLE_CONTACT:
+      return {
+        ...state,
+        contact:action.payload
+      }
+
+    default:
+      return state;
+  }
+}  
