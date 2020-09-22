@@ -173,9 +173,12 @@ const AddContact = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
+    isUpdate ? updateContact() : addContact()
+    toast('Success',{type:"success"})
     // isUpdate wll be true when the user came to update the contact
     // when their is contact then updating and when no contact to update then adding contact
     //TODO: set isUpdate value
+    
 
     // to handle the bug when the user visit again to add contact directly by visiting the link
     dispatch({
