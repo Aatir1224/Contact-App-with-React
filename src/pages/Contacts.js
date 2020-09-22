@@ -5,7 +5,7 @@ import Contact from "../components/Contact";
 import { MdAdd } from "react-icons/md";
 import { useHistory } from "react-router-dom";
 import { ContactContext } from "../context/Context";
-import { CONTACT_TO_UPDATE } from "../context/action.types";
+import { CONTACT_TO_UPDATE } from "../context/action-type";
 
 const Contacts = () => {
   const { state, dispatch } = useContext(ContactContext);

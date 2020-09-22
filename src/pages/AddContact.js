@@ -30,7 +30,7 @@ import { v4 } from "uuid";
 
 // context stuffs
 import { ContactContext } from "../context/Context";
-import { CONTACT_TO_UPDATE } from "../context/action.types";
+import { CONTACT_TO_UPDATE } from "../context/action-type";
 
 import { useHistory } from "react-router-dom";
 
@@ -106,7 +106,7 @@ const AddContact = () => {
                 console.log("Uploading is in progress...")
                 break;
           }
-          if(progress == 100){
+          if(progress === 100){
             setIsUploading(false)
             toast("uploaded", {type:"success"})
           }

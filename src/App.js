@@ -15,8 +15,11 @@ import "./App.css";
 
 // firebase stuffs
 //TODO: import firebase config and firebase database
+import * as firebase from 'firebase/app';
+ 
+// These imports load individual services into the firebase namespace.
 import {firebaseConfig} from './utils/config';
-import firebase from 'firebase/app';
+// import firebase from 'firebase/app';
 import "firebase/database"
 import "firebase/storage"
 // components
@@ -31,7 +34,7 @@ import PageNotFound from "./pages/PageNotFound";
 //TODO: import reducers and contexts
 import reducer from './context/reducer';
 import {ContactContext} from "./context/Context"
-import {SET_CONTACT, SET_LOADING} from './context/action.type'
+import {SET_CONTACT, SET_LOADING} from './context/action-type'
 //initlizeing firebase app with the firebase config which are in ./utils/firebaseConfig
 //TODO: initialize FIREBASE
 firebase.initializeApp(firebaseConfig)
@@ -55,7 +58,7 @@ const App = () => {
       payload:true    
   })
   const contactsRef = await firebase.database()
-  .ref('./contacts')
+  .ref('/contacts')
   contactsRef.on('value',snapshot => {
     dispatch({
       type:SET_CONTACT,
