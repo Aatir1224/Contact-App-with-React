@@ -12,7 +12,7 @@ import firebase from 'firebase/app';
 // context stuffs
 //TODO: import context and action: update and single_contact
 import {ContactContext} from '../context/Context';
-import {CONTACT_TO_UPDATE, SET_SINGLE_CONTACT} from '../context/action-type';
+import {CONTACT_TO_UPDATE, SET_SINGLE_CONTACT} from '../context/action.type';
 import { useHistory } from "react-router-dom";
 
 import { toast } from "react-toastify";
