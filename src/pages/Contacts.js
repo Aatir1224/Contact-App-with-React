@@ -5,7 +5,7 @@ import Contact from "../components/Contact";
 import { MdAdd } from "react-icons/md";
 import { useHistory } from "react-router-dom";
 import { ContactContext } from "../context/Context";
-import { CONTACT_TO_UPDATE } from "../context/action-type";
+import { CONTACT_TO_UPDATE } from "../context/action.types";
 
 const Contacts = () => {
   const { state, dispatch } = useContext(ContactContext);
@@ -21,10 +21,10 @@ const Contacts = () => {
   const AddContact = () => {
     //TODO: use dispatch to send user to add contact screen
     dispatch({
-      type:CONTACT_TO_UPDATE,
-      payload:null,
-      key:null
-    })
+      type: CONTACT_TO_UPDATE,
+      payload: null,
+      key: null
+    });
     history.push("/contact/add");
   };
 
@@ -42,12 +42,14 @@ const Contacts = () => {
     <Container className="mt-4">
       {/* TODO: Loop through FIREBASE objects  */}
       {contacts.length === 0 && !isLoading ? (
-        <div className="Center text-large text-primary">No Contacts found in firebase</div>
+        <div className="Center text-large text-primary">
+          NO Contacts found in firebase
+        </div>
       ) : (
         <ListGroup>
-          {Object.entries(contacts).map(([key,value]) =>(
+          {Object.entries(contacts).map(([key, value]) => (
             <ListGroupItem key={key}>
-              <Contact contact={value} contactKey = {key}/>
+              <Contact contact={value} contactKey={key} />
             </ListGroupItem>
           ))}
         </ListGroup>
